@@ -1,9 +1,26 @@
-import { Test } from "@screens/Teste";
+import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import { Text, View, StatusBar } from "react-native";
+
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Roboto_400Regular, Roboto_700Bold
+  })
   return (
-    <Test
-      name="Ok?"
-    />
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#202024',
+      }}
+    >
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor='transparent'
+        translucent
+      />
+      {fontsLoaded ? <Text>Ok, carregou</Text> : <Text>Ok, carregou</Text>}
+    </View>
   );
 }
